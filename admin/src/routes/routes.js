@@ -9,7 +9,6 @@ import NotFound from '../pages/NotFound';
 import Permission from '../pages/permissions/Permission';
 import Permissions from '../pages/permissions/Permissions';
 import Users from '../pages/Users';
-import CheckoutMainPageComponent from '../pages/checkout/CheckoutMainPage'
 
 const routes = [
   {
@@ -19,10 +18,6 @@ const routes = [
   {
     path: '/login',
     element: <Login />,
-  },
-  {
-    path: '/checkout',
-    element: <CheckoutMainPageComponent/>
   },
   {
     path: '/dashboard/*',
