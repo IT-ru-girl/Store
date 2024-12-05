@@ -47,6 +47,9 @@ const Navbar = () => {
   const handleBlog =()=>{
     navigate('/blog')
   }
+  const handleCheckout =()=>{
+    navigate('/checkout')
+  }
   const handleDrawerOpen = () => {
     dispatch(toggleSidebar(sidebarOpen));
   };
@@ -76,6 +79,9 @@ const Navbar = () => {
         </Button>
         <Button color="inherit" onClick={handleBlog}>
           Blog
+        </Button>
+        <Button color="inherit" onClick={handleCheckout}>
+          Checkout
         </Button>
       </Toolbar>
     </AppBar>
