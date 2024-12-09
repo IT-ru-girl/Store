@@ -7,9 +7,6 @@ import {
 import IconButton from '@mui/material/IconButton';
 import {Search} from "@mui/icons-material";
 import {SvgIcon} from '@mui/material';
-import CssBaseline from "@mui/material/CssBaseline";
-
-import {createTheme, styled, ThemeProvider} from '@mui/material/styles';
 import {
     ContinueReadingLink,
     DenseToolbar,
@@ -18,13 +15,11 @@ import {
     FeaturedTitle,
     RootToolbar
 } from "./Header.styles";
+import {LINKS} from "./Header.const";
 
 
 export const  Header=()=> {
-    const links = [
-        'Technology', 'Design', 'Culture', 'Business', 'Politics', 'Opinion',
-        'Science', 'Health', 'Style', 'Travel'
-    ];
+
     return (
         <>
             <RootToolbar>
@@ -46,8 +41,8 @@ export const  Header=()=> {
                 </div>
             </RootToolbar>
             <DenseToolbar variant="dense">
-                {links.map((link, index) => (
-                    <Link href="" color="inherit" key={index} underline="hover">
+                {LINKS.map((link, index) => (
+                    <Link href="" key={index} color="inherit" underline="hover">
                         {link}
                     </Link>
                 ))}

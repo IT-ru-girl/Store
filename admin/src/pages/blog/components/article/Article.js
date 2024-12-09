@@ -1,5 +1,4 @@
-import About from "../about/About";
-import Archives from "../archives/Archives";
+
 import React from "react";
 import {GlobalTypography, GridMain, ParagraphTypography, TitleTypography} from "./Article.styles";
 import {Link, Typography} from "@mui/material";
