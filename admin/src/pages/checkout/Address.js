@@ -3,14 +3,12 @@ import {
     Checkbox,
     FormControl,
     FormControlLabel,
-
     InputLabel,
     TextField,
     Typography,
-
 } from '@mui/material';
 
-export function  Address () {
+export const Address = () => {
     return (
         <div>
             <Typography variant="h6" gutterBottom>
@@ -84,10 +82,6 @@ export function  Address () {
                     />
                 </Grid>
             </Grid>
-
         </div>
-
-
-
     )
 }

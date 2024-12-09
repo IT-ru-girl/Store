@@ -1,42 +1,32 @@
-import React, {Component, useState} from 'react';
+import {useState} from 'react';
 import {
-    AppBar,
-    Box, Checkbox, FormControl, FormControlLabel,
-
-    InputLabel, ListItem, ListItemText, Paper,
+    Box,
+    Paper,
     Step,
     StepLabel,
-    Stepper, SvgIcon,
-    TextField, Toolbar,
-    Typography, useMediaQuery,
+    Toolbar,
+    Typography,
 } from '@mui/material';
-import {styled, ThemeProvider} from "@mui/material/styles";
 import {
     StyledAppBar,
-    StyledStepIcon,
     StyledButton,
     ContainerMain,
     CheckoutItem,
-    StepperRow, CheckoutStepper, StyledButtonBack
+    CheckoutStepper, StyledButtonBack
 } from './Checkout.styles.js';
 import {Address} from './Address';
-
 import {PaymentItem} from "./PaymentItem";
 import {Order} from "./Order";
-import {Payment} from "@mui/icons-material";
 import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid2";
 
 
-function Checkout() {
+export const Checkout = () => {
     const steps = [
         'Shipping address',
         'Payment details',
         'Review your order',
     ]
-
-    const [currentStep,setCurrentStep ] = useState(1)
-
+    const [currentStep, setCurrentStep] = useState(1)
     const buttonHandleNext = () => {
         setCurrentStep((prevCurrentStep) => prevCurrentStep + 1)
     }
@@ -44,13 +34,11 @@ function Checkout() {
         setCurrentStep((prevCurrentStep) => prevCurrentStep - 1);
     };
     const activeCurrentStep = (step) => {
-
         switch (step) {
             case 1:
-
                 return <Address/>;
             case 2:
-                return <PaymentItem />;
+                return <PaymentItem/>;
             case 3:
                 return <Order/>;
             case 4:
@@ -70,8 +58,6 @@ function Checkout() {
                 return null;
         }
     };
-
-
     return (
         <>
             <CssBaseline/>
@@ -90,8 +76,7 @@ function Checkout() {
                     <Typography variant="h4" align="center" gutterBottom>
                         Checkout
                     </Typography>
-
-                    <CheckoutStepper activeStep={currentStep-1} orientaion='horizontal'>
+                    <CheckoutStepper activeStep={currentStep - 1} orientaion='horizontal'>
                         <Step>
                             <StepLabel>
                                 'Shipping address',
@@ -108,17 +93,13 @@ function Checkout() {
                             </StepLabel>
                         </Step>
                     </CheckoutStepper>
-
-
                     {activeCurrentStep(currentStep)}
-
-
                     {/* Next Button */}
                     <div style={{
                         display: 'flex',
                         justifyContent: 'flex-end'
                     }}>
-                        {currentStep > 1 && currentStep < 4?
+                        {currentStep > 1 && currentStep < 4 ?
                             <StyledButtonBack onClick={buttonHandleBack}>
                                 Back
                             </StyledButtonBack> : <></>
@@ -127,13 +108,10 @@ function Checkout() {
                             StyledButton onClick={buttonHandleNext}
                                          variant="contained"
                                          color="secondary">
-                            {currentStep < 4 && currentStep === 3  ? 'PLACE ORDER' : 'NEXT'}
+                            {currentStep < 4 && currentStep === 3 ? 'PLACE ORDER' : 'NEXT'}
                         </StyledButton>
-
-
                     </div>
                     {/*</Box>*/}
-
                     {/* Footer */}
                     <Box mt={4} textAlign="center">
                         <Typography variant="body2" color="textSecondary">
@@ -145,13 +123,10 @@ function Checkout() {
                         </Typography>
                     </Box>
                 </CheckoutItem>
-
             </ContainerMain>
         </>
-
-
     );
 }
 
-export default Checkout;
+
 

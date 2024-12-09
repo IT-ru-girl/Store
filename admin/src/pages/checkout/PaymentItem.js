@@ -1,10 +1,8 @@
 import {Checkbox, FormControlLabel, TextField, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import {StyledButtonBack} from "./Checkout.styles";
 import React from "react";
 
-export const PaymentItem =()=>{
-
+export const PaymentItem = () => {
     return (
         <>
             <Typography variant="h6"
@@ -14,36 +12,34 @@ export const PaymentItem =()=>{
             <Grid container spacing={3}>
 
                 <Grid item xs={12} sm={6}>
-                    <TextField  variant="standard"
-                                required
-                                label='Name on card'
-                                fullWidth>
+                    <TextField variant="standard"
+                               required
+                               label='Name on card'
+                               fullWidth>
                     </TextField>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                    <TextField  variant="standard"
-                                required
-                                label='Card number'
-                                fullWidth>
-
+                    <TextField variant="standard"
+                               required
+                               label='Card number'
+                               fullWidth>
                     </TextField>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                    <TextField  variant="standard"
-                                required
-                                label='Expiry date'
-                                fullWidth>
+                    <TextField variant="standard"
+                               required
+                               label='Expiry date'
+                               fullWidth>
                     </TextField>
 
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField  variant="standard"
-                                required
-                                label='CVV'
-                                fullWidth>
-
+                    <TextField variant="standard"
+                               required
+                               label='CVV'
+                               fullWidth>
                     </TextField>
                 </Grid>
 
@@ -53,10 +49,7 @@ export const PaymentItem =()=>{
                                      card details
                                      for next time'/>
                 </Grid>
-
-
             </Grid>
         </>
-
     )
 }

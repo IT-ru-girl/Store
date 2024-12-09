@@ -1,7 +1,7 @@
 import {ListItem, ListItemText, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-export const Order =()=>{
+export const Order = () => {
     const orderList =
         [
             {
@@ -40,7 +40,7 @@ export const Order =()=>{
         <>
             <Typography variant="h6"
                         gutterBottom>Order summary</Typography>
-            {orderList.map((item)=>(
+            {orderList.map((item) => (
                 <ListItem>
                     <ListItemText
                         primary={<Typography variant="body1">
@@ -99,6 +99,5 @@ export const Order =()=>{
                 </Grid>
             </Grid>
         </>
-
     )
 }
