@@ -9,6 +9,9 @@ import NotFound from '../pages/NotFound';
 import Permission from '../pages/permissions/Permission';
 import Permissions from '../pages/permissions/Permissions';
 import Users from '../pages/Users';
+import Blog from "../pages/blog/Blog";
+import {Checkout} from "../pages/checkout/Checkout";
+
 
 const routes = [
   {
@@ -18,6 +21,14 @@ const routes = [
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/blog',
+    element: <Blog />,
+  },
+  {
+    path: '/checkout',
+    element: <Checkout />,
   },
   {
     path: '/dashboard/*',
@@ -55,7 +66,7 @@ const routes = [
         path: 'modules/:courseId',
         element: <Modules />,
       },
-      
+
     ],
   },
   {

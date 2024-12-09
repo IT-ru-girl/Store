@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { logout } from '../features/auth/authSlice';
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () => {
+  const navigate =useNavigate()
   const drawerWidth = 240;
 
   const AppBar = styled(MuiAppBar, {
@@ -41,6 +43,13 @@ const Navbar = () => {
     e.preventDefault();
     dispatch(logout());
   };
+
+  const handleBlog =()=>{
+    navigate('/blog')
+  }
+  const handleCheckout =()=>{
+    navigate('/checkout')
+  }
   const handleDrawerOpen = () => {
     dispatch(toggleSidebar(sidebarOpen));
   };
@@ -67,6 +76,12 @@ const Navbar = () => {
         </Typography>
         <Button color="inherit" onClick={handleLogout}>
           Logout
+        </Button>
+        <Button color="inherit" onClick={handleBlog}>
+          Blog
+        </Button>
+        <Button color="inherit" onClick={handleCheckout}>
+          Checkout
         </Button>
       </Toolbar>
     </AppBar>
