@@ -10,7 +10,8 @@ import Permission from '../pages/permissions/Permission';
 import Permissions from '../pages/permissions/Permissions';
 import Users from '../pages/Users';
 import Blog from "../pages/blog/Blog";
-import Checkout from "../pages/checkout/Checkout";
+import {Checkout} from "../pages/checkout/Checkout";
+
 
 const routes = [
   {

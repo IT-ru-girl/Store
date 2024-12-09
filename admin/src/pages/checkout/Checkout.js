@@ -18,14 +18,11 @@ import {Address} from './Address';
 import {PaymentItem} from "./PaymentItem";
 import {Order} from "./Order";
 import CssBaseline from "@mui/material/CssBaseline";
+import {STEPS} from "./const/Checkout.const";
 
 
 export const Checkout = () => {
-    const steps = [
-        'Shipping address',
-        'Payment details',
-        'Review your order',
-    ]
+
     const [currentStep, setCurrentStep] = useState(1)
     const buttonHandleNext = () => {
         setCurrentStep((prevCurrentStep) => prevCurrentStep + 1)
@@ -77,21 +74,13 @@ export const Checkout = () => {
                         Checkout
                     </Typography>
                     <CheckoutStepper activeStep={currentStep - 1} orientaion='horizontal'>
-                        <Step>
-                            <StepLabel>
-                                'Shipping address',
-                            </StepLabel>
-                        </Step>
-                        <Step>
-                            <StepLabel>
-                                'Payment details',
-                            </StepLabel>
-                        </Step>
-                        <Step>
-                            <StepLabel>
-                                'Review your order',
-                            </StepLabel>
-                        </Step>
+                        {STEPS.map((step, index)=>(
+                                <Step key={index}>
+                                    <StepLabel>
+                                        {step}
+                                    </StepLabel>
+                                </Step>
+                            ))}
                     </CheckoutStepper>
                     {activeCurrentStep(currentStep)}
                     {/* Next Button */}
