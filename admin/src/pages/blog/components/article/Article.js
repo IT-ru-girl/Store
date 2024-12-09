@@ -5,7 +5,7 @@ import {GlobalTypography, GridMain, ParagraphTypography, TitleTypography} from "
 import {Link, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
 
-function Article (){
+export const Article= ()=>{
     return(
         <GridMain item xs={12} md={8}>
             <Typography variant="h6">
@@ -160,4 +160,4 @@ function Article (){
 
     )
 }
-export default Article;
+

@@ -1,23 +1,13 @@
 import React from 'react';
 import {
     Container,
-
-
 } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import FacebookIcon from '@mui/icons-material/Facebook'
-
-import Header from "./components/header/Header";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Grid from '@mui/material/Grid2'
-import Divider from "@mui/material/Divider";
-import {withSocialLink} from "./withSocialLink";
-import PostCard from "./components/postcard/PostCard";
-import Archives from "./components/archives/Archives";
-import Main from "./components/main/Main";
 import {Footer} from "./components/footer/Footer";
+import {Header} from "./components/header/Header";
+import {PostCard} from "./components/postcard/PostCard";
+import {Main} from "./components/main/Main";
 
 export const theme = createTheme({
     typography: {
@@ -25,7 +15,7 @@ export const theme = createTheme({
     },
 });
 
-function Blog() {
+export const Blog = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
@@ -41,4 +31,4 @@ function Blog() {
     );
 }
 
-export default Blog;
+

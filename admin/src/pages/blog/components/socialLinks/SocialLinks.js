@@ -2,7 +2,7 @@ import {Link, SvgIcon, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import {GridSocial, TypographyMain} from "./SocialLinks.styles";
 
-export function SocialLink() {
+export const SocialLink=()=> {
     return (
         <div>
             <TypographyMain variant='h6' gutterBottom>

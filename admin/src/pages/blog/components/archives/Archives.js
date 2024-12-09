@@ -1,7 +1,7 @@
 import {Box, Typography, Link} from "@mui/material"
 import {MainLink} from "./Archives.styles";
 
-export function Archives() {
+export const Archives=()=> {
     const archives = [
         'March 2020',
         'February 2020',
@@ -39,4 +39,4 @@ export function Archives() {
     )
 }
 
-export default Archives;
+

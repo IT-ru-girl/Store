@@ -4,7 +4,7 @@ import {Paper, Typography} from "@mui/material";
 import {ParagraphTypography} from "../article/Article.styles";
 
 
-function About() {
+export const  About=()=> {
     return (
         <MainItem elevation='0' rounded>
             <Typography variant="h6">

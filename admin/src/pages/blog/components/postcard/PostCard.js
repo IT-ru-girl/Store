@@ -17,7 +17,7 @@ const cards =[{
 }
 ]
 
-const PostCard = () => {
+export const PostCard = () => {
     return (
         <Grid container spacing='4'>
         {cards.map((card,index)=>
@@ -49,4 +49,4 @@ const PostCard = () => {
         </Grid>
     )
 }
-export default PostCard;
+

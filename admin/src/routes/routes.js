@@ -9,7 +9,8 @@ import NotFound from '../pages/NotFound';
 import Permission from '../pages/permissions/Permission';
 import Permissions from '../pages/permissions/Permissions';
 import Users from '../pages/Users';
-import Blog from "../pages/blog/Blog";
+import {Blog} from "../pages/blog/Blog";
+
 
 const routes = [
   {

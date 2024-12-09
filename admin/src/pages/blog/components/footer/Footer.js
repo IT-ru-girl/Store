@@ -2,7 +2,7 @@ import {Container, Link, Typography} from "@mui/material";
 import {FooterMain} from "./Footer.styles";
 
 
-export function Footer() {
+export const Footer=() =>{
     return (
         <FooterMain  >
             <Container maxWidth='lg'>
