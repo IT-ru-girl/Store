@@ -3,12 +3,14 @@ import eslintPluginImport from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import react from 'eslint-plugin-react';
 import globals from 'globals';
-
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tseslintParser from '@typescript-eslint/parser';
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: {
+      parser: tseslintParser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -17,26 +19,19 @@ export default [
         },
       },
       globals: {
-        ...Object.keys(globals.browser).reduce((acc, key) => {
-          acc[key.trim()] = globals.browser[key];
-          return acc;
-        }, {}),
-        ...Object.keys(globals.node).reduce((acc, key) => {
-          acc[key.trim()] = globals.node[key];
-          return acc;
-        }, {}),
-        ...Object.keys(globals.jest).reduce((acc, key) => {
-          acc[key.trim()] = globals.jest[key];
-          return acc;
-        }, {}),
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
       },
     },
     plugins: {
+      '@typescript-eslint': tseslint,
       react,
       jest,
       import: eslintPluginImport,
     },
     rules: {
+      ...tseslint.configs.recommended.rules,
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
       ...jest.configs.recommended.rules,

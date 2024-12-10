@@ -7,15 +7,20 @@ import DialogTitle from '@mui/material/DialogTitle';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import {FC, FormEvent} from "react";
 
-function ForgotPassword({ open, handleClose }) {
+interface ForgotPasswordProps {
+  open: boolean;
+  handleClose: () => void;
+}
+export const  ForgotPassword: FC<ForgotPasswordProps>= ({ open, handleClose })=> {
   return (
     <Dialog
       open={open}
       onClose={handleClose}
       PaperProps={{
         component: 'form',
-        onSubmit: event => {
+        onSubmit: (event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
           handleClose();
         },
@@ -53,4 +58,4 @@ ForgotPassword.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-export default ForgotPassword;
+

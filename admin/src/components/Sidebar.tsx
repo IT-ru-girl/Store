@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
+import {RootState} from "../app/store";
 
 const Sidebar = () => {
   const navigation_list = [
@@ -89,7 +90,7 @@ const Sidebar = () => {
 
   const theme = useTheme();
   const navigate = useNavigate();
-  const { sidebarOpen } = useSelector(state => state.dashboard);
+  const { sidebarOpen } = useSelector((state: RootState) => state.dashboard);
   const dispatch = useDispatch();
 
   const handleDrawerClose = () => {

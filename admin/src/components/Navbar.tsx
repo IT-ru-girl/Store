@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { logout } from '../features/auth/authSlice';
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
+import {RootState} from "../app/store";
 
 const Navbar = () => {
   const drawerWidth = 240;
@@ -34,7 +35,7 @@ const Navbar = () => {
     ],
   }));
 
-  const { sidebarOpen } = useSelector(state => state.dashboard);
+  const { sidebarOpen } = useSelector((state:RootState) => state.dashboard);
   const dispatch = useDispatch();
 
   const handleLogout = e => {

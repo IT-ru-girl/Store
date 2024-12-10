@@ -3,17 +3,18 @@ import Box from '@mui/material/Box';
 import MuiCard from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import { useEffect, useState } from 'react';
+import {FormEvent, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { login } from '../../features/auth/authThunk';
+import {RootState} from "../../app/store";
 
 const Login = () => {
   // const [credentials, setCredentials] = useState({ username: '', password: '' });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector(state => state.auth);
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   const [emailError, setEmailError] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
@@ -29,7 +30,7 @@ const Login = () => {
     setOpen(false);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit =  (event: FormEvent<HTMLFormElement>)=> {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     dispatch(
