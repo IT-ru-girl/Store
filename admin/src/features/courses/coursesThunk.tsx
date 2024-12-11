@@ -6,7 +6,7 @@ import apiClient from '../../utils/apiClient';
 const API_URL = '/courses';
 
 // Async thunks for CRUD operations
- interface Course {
+ export interface ICourse {
   id: string;
   title: string;
   description: string;
@@ -14,7 +14,7 @@ const API_URL = '/courses';
   instructor: string;
   students: string;
 }
-export interface SingleCourse {
+export interface ISingleCourse {
     title: string;
     description: string;
     modules: string;
@@ -34,13 +34,13 @@ export const fetchCourse = createAsyncThunk('courses/fetchCourse', async (course
 });
 
 // Add a new course
-export const addCourse = createAsyncThunk('courses/addCourse', async (newCourse: SingleCourse) => {
+export const addCourse = createAsyncThunk('courses/addCourse', async (newCourse: ISingleCourse) => {
   const response = await apiClient.post(API_URL, newCourse);
   return response.data;
 });
 
 // Update a course
-export const updateCourse = createAsyncThunk('courses/updateCourse', async (updatedCourse: Course) => {
+export const updateCourse = createAsyncThunk('courses/updateCourse', async (updatedCourse: ICourse) => {
   const { id, ...data } = updatedCourse;
   const response = await apiClient.put(`${API_URL}/${id}`, data);
   return response.data;

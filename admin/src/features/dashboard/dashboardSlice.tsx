@@ -1,8 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import {RootState} from "../../app/store";
+import { createSlice } from "@reduxjs/toolkit";
 
 const dashboardSlice = createSlice({
-  name: 'dashboard',
+  name: "dashboard",
   initialState: {
     sidebarOpen: true,
   },

@@ -3,28 +3,18 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import apiClient from '../../utils/apiClient';
 
- export interface UserState {
-  user: User | null;
-  status: 'idle' | 'loading' | 'succeeded' | 'failed' | 'fetching' | 'fetched';
-  error: string | null;
-}
 
- export interface UsersState {
-  users: User[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}
 
- export interface User {
+ export interface IUser {
   _id: string;
   first_name: string;
   last_name: string;
   role: string;
 }
 
- export interface UpdateUserPayload {
+ export interface IUpdateUserPayload {
   userId: string;
-  updatedUser: User;
+  updatedUser: IUser;
 }
 const API_URL = '/users';
 
@@ -48,7 +38,7 @@ export const addUser = createAsyncThunk('users/addUser', async newUser => {
 });
 
 // Update a user
-export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, updatedUser }:UpdateUserPayload) => {
+export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, updatedUser }:IUpdateUserPayload) => {
   const response = await apiClient.put(`${API_URL}/${userId}`, updatedUser);
   return response.data;
 });

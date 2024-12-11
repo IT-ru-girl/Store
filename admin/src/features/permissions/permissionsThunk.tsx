@@ -2,17 +2,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import apiClient from '../../utils/apiClient';
-export interface PermissionType {
+export interface IPermission {
   name: string;
   description: string;
 }
 
-export interface PermissionState {
-  permissions: PermissionType[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}
-interface UpdatePermissionProps {
+
+interface IUpdatePermission {
   permissionId: string;
   updatedPermission: {
     name: string;
@@ -35,7 +31,7 @@ export const fetchPermission = createAsyncThunk('permissions/fetchPermission', a
 });
 
 // Add a new permission
-export const addPermission = createAsyncThunk<PermissionType,PermissionType>('permissions/addPermission', async newPermission => {
+export const addPermission = createAsyncThunk<IPermission,IPermission>('permissions/addPermission', async newPermission => {
   const response = await apiClient.post(API_URL, newPermission);
   return response.data;
 });
@@ -43,7 +39,7 @@ export const addPermission = createAsyncThunk<PermissionType,PermissionType>('pe
 // Update a permission
 export const updatePermission = createAsyncThunk(
   'permissions/updatePermission',
-  async ({ permissionId, updatedPermission }: UpdatePermissionProps) => {
+  async ({ permissionId, updatedPermission }: IUpdatePermission) => {
     const response = await apiClient.put(`${API_URL}/${permissionId}`, updatedPermission);
     return response.data;
   },

@@ -1,8 +1,6 @@
 import { TextField, Button, Paper, Typography } from '@mui/material';
 import {ChangeEvent, FormEvent, useState} from 'react';
-
-
-import {addCourse, SingleCourse} from '../../features/courses/coursesThunk';
+import {addCourse, } from '../../features/courses/coursesThunk';
 import {useAppDispatch} from "../../app/store";
 
 const Course = () => {

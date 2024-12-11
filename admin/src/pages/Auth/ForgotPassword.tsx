@@ -8,11 +8,11 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import * as React from 'react';
 import {FC, FormEvent} from "react";
 
-interface ForgotPasswordProps {
+interface IForgotPassword {
   open: boolean;
   handleClose: () => void;
 }
-export const  ForgotPassword: FC<ForgotPasswordProps>= ({ open, handleClose })=> {
+export const  ForgotPassword: FC<IForgotPassword>= ({ open, handleClose })=> {
   return (
     <Dialog
       open={open}

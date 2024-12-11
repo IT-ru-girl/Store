@@ -4,7 +4,7 @@ import MuiCard from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import {FormEvent, useEffect, useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../features/auth/authThunk';
 import {RootState, useAppDispatch} from "../../app/store";

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addCourse, deleteCourse, fetchCourse, fetchCourses, updateCourse } from './coursesThunk';
+import { deleteCourse, fetchCourse, fetchCourses, updateCourse } from './coursesThunk';
 
 const coursesSlice = createSlice({
   name: 'auth',

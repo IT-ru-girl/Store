@@ -1,8 +1,8 @@
-import AuthService, {Credentials} from './authService';
+import AuthService, {ICredentials} from './authService';
 import { loginRequest, loginSuccess, loginFailure, logout } from './authSlice';
 import {AppDispatch} from "../../app/store";
 
-export const login = (credentials: Credentials) => async (dispatch: AppDispatch) => {
+export const login = (credentials: ICredentials) => async (dispatch: AppDispatch) => {
   dispatch(loginRequest());
   try {
     const user = await AuthService.login(credentials);
