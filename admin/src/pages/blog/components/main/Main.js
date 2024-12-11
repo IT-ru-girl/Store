@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
     GridContainer,
 } from "../article/Article.styles";

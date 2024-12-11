@@ -3,8 +3,6 @@ import {MainLink} from "./Archives.styles";
 import {ARCHIVES} from "./Archives.const";
 
 export const Archives=()=> {
-
-
     return (
         <div>
             <Typography

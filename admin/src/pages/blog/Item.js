@@ -1,9 +1,10 @@
 import {GridMainText} from "./components/about/About.styles";
 import React from "react";
-import About from "./components/about/About";
+
 
 import {SocialLink} from "./components/socialLinks/SocialLinks";
 import {Archives} from "./components/archives/Archives";
+import {About} from "./components/about/About";
 
 export const Item = () => {
     return (

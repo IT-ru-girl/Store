@@ -1,7 +1,7 @@
-import React from 'react';
-import {GridMain, ItemText, MainItem} from "./About.styles";
-import {Paper, Typography} from "@mui/material";
-import {ParagraphTypography} from "../article/Article.styles";
+
+import { ItemText, MainItem} from "./About.styles";
+import {Typography} from "@mui/material";
+
 
 
 export const  About=()=> {
@@ -18,4 +18,4 @@ export const  About=()=> {
     )
 }
 
-export default About;
+

@@ -4,7 +4,7 @@ import {FooterMain} from "./Footer.styles";
 
 export const Footer=() =>{
     return (
-        <FooterMain  >
+        <FooterMain>
             <Container maxWidth='lg'>
                 <Typography variant='h6' gutterBottom align='center'>
                     Footer

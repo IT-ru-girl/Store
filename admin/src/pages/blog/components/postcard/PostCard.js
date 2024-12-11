@@ -1,6 +1,5 @@
 import {Button,  CardActionArea, CardContent, Paper, Typography} from '@mui/material'
 import Grid from '@mui/material/Grid2'
-import React from 'react'
 import {GridRow} from "./PostCard.styles";
 import {CARDS} from "./PostCard.const";
 

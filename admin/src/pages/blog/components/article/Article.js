@@ -1,5 +1,4 @@
 
-import React from "react";
 import {GlobalTypography, GridMain, ParagraphTypography, TitleTypography} from "./Article.styles";
 import {Link, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
@@ -18,7 +17,7 @@ export const Article= ()=>{
                 </TitleTypography>
                 <Typography paragraph caption gutterBottom >
                     April 1, 2020 by
-                    <Link href='' underline='hover' color='primary'>
+                    <Link href='#' underline='hover' color='primary'>
                         Olivier
                     </Link>
                 </Typography>
@@ -156,7 +155,6 @@ export const Article= ()=>{
                 </ParagraphTypography>
             </GlobalTypography>
         </GridMain>
-
     )
 }
 
