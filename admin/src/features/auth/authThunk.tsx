@@ -16,7 +16,7 @@ export const checkAuth = () => (dispatch:AppDispatch) => {
   const token = localStorage.getItem('token');
   if (token) {
     // Optionally verify token or fetch user data
-    dispatch(loginSuccess(/* user data */));
+    dispatch(loginSuccess(token));
   } else {
     dispatch(logout());
   }

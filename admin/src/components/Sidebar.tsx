@@ -2,7 +2,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {List, ListItem, ListItemIcon, ListItemText, Theme} from '@mui/material';
 import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -35,7 +35,7 @@ const Sidebar = () => {
 
   const drawerWidth = 240;
 
-  const openedMixin = theme => ({
+  const openedMixin = (theme: Theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -44,7 +44,7 @@ const Sidebar = () => {
     overflowX: 'hidden',
   });
 
-  const closedMixin = theme => ({
+  const closedMixin = (theme: Theme) => ({
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

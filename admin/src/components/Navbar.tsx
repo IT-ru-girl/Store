@@ -9,36 +9,40 @@ import { logout } from '../features/auth/authSlice';
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
 import {RootState} from "../app/store";
 
+interface AppBarType {
+  open?: boolean;
+}
+
 const Navbar = () => {
+
+
+
   const drawerWidth = 240;
 
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: prop => prop !== 'open',
-  })(({ theme }) => ({
+  })<AppBarType>(({ theme }) => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    variants: [
-      {
-        props: ({ open }) => open,
-        style: {
-          marginLeft: drawerWidth,
-          width: `calc(100% - ${drawerWidth}px)`,
-          transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-          }),
-        },
-      },
-    ],
+
+    ...(open && {
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    }),
+
   }));
 
   const { sidebarOpen } = useSelector((state:RootState) => state.dashboard);
   const dispatch = useDispatch();
 
-  const handleLogout = e => {
+  const handleLogout = (e: MouseEvent<HTMLButtonElement> )=> {
     e.preventDefault();
     dispatch(logout());
   };

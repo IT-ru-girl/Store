@@ -13,7 +13,7 @@ import Permission from './Permission';
 import { resetState } from '../../features/permissions/permissionSlice';
 import { addOrUpdatePermission } from '../../features/permissions/permissionsSlice';
 import { fetchPermissions } from '../../features/permissions/permissionsThunk';
-import './Permissions.scss';
+import './Permissions';
 
 const Permissions = () => {
   const dispatch = useDispatch();

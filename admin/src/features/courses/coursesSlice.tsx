@@ -7,6 +7,8 @@ const coursesSlice = createSlice({
   initialState: {
     courses: [],
     course: null,
+    totalPages: 0,
+    currentPage: 0,
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },

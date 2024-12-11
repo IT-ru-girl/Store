@@ -33,25 +33,27 @@ const Login = () => {
   const handleSubmit =  (event: FormEvent<HTMLFormElement>)=> {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const email = String(data.get('email')) || '';
+    const password = String(data.get('password')) || '';
+
     dispatch(
-      login({
-        username: data.get('email'),
-        password: data.get('password'),
-      }),
+        login({
+          email: email,
+          password: password
+        }),
     );
   };
 
   const validateInputs = () => {
-    const email = document.getElementById('email');
+    const emailElement = document.getElementById('email') as HTMLInputElement | null;
 
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (emailElement && (!emailElement.value || !/\S+@\S+\.\S+/.test(emailElement.value))) {
       setEmailError(true);
       setEmailErrorMessage('Please enter a valid email address.');
       isValid = false;
     }
-
     return isValid;
   };
 

@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { fetchCourses } from '../../features/courses/coursesThunk';
 
-import './Courses.scss';
+import './Courses';
+import {RootState} from "../../app/store";
 const Courses = () => {
   const dispatch = useDispatch();
-  const { courses = [], status } = useSelector(state => state.courses);
+  const { courses = [], status } = useSelector((state:RootState) => state.courses);
 
   const columns = [
     { field: 'title', headerName: 'Title', width: 130 },
