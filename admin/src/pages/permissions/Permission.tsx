@@ -1,12 +1,20 @@
 import { Button, TextField } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {ChangeEvent, FC, FormEvent, useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
 
-import { addPermission, fetchPermission, updatePermission } from '../../features/permissions/permissionsThunk';
-import {RootState} from "../../app/store";
+import {
+  addPermission,
+  fetchPermission,
+  updatePermission
+} from '../../features/permissions/permissionsThunk';
+import {RootState, useAppDispatch} from "../../app/store";
 
-const Permission = ({ permissionId, handleClose }) => {
-  const dispatch = useDispatch();
+interface PermissionProps {
+  permissionId?: string | null;
+  handleClose?: (permission?: any) => void;
+}
+const Permission: FC<PermissionProps> = ({ permissionId, handleClose }) => {
+  const dispatch = useAppDispatch();
   // Select permission state from Redux store
   const { permission = {}, status, error } = useSelector((state:RootState) => state.permission);
 
@@ -18,7 +26,7 @@ const Permission = ({ permissionId, handleClose }) => {
 
   // Effect to fetch permission if `permissionId` is provided
   useEffect(() => {
-    dispatch(fetchPermission(permissionId));
+    dispatch(fetchPermission());
   }, []);
 
   // Sync local state with Redux state when `permission` changes
@@ -39,7 +47,7 @@ const Permission = ({ permissionId, handleClose }) => {
   }, [status]);
 
   // Handle form input changes
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>)=> {
     const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
@@ -48,7 +56,7 @@ const Permission = ({ permissionId, handleClose }) => {
   };
 
   // Handle form submission
-  const handleSubmit = e => {
+  const handleSubmit =(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (permissionId) {
       dispatch(updatePermission({ permissionId, updatedPermission: formData }));

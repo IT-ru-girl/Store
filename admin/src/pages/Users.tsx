@@ -4,11 +4,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { fetchUsers } from '../features/users/usersThunk';
+import {fetchUsers, User} from '../features/users/usersThunk';
+import {RootState, useAppDispatch} from "../app/store";
 
 const Users = () => {
-  const dispatch = useDispatch();
-  const { users = [], status } = useSelector(state => state.users);
+  const dispatch = useAppDispatch();
+  const { users = [], status } = useSelector((state: RootState) => state.users);
 
   const columns = [
     { field: 'first_name', headerName: 'First Name', width: 130 },
@@ -28,7 +29,7 @@ const Users = () => {
 
   const navigate = useNavigate();
 
-  const createUpdateUser = userId => {
+  const createUpdateUser = (userId?: string) => {
     let path = '/dashboard/add-user';
     if (userId) path = `/dashboard/update-user/${userId}`;
     navigate(path);
@@ -36,7 +37,7 @@ const Users = () => {
 
   const paginationModel = { page: 0, pageSize: 5 };
 
-  const getRowId = row => {
+  const getRowId = (row: User)=> {
     return row._id;
   };
   return (

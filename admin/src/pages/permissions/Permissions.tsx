@@ -8,20 +8,27 @@ import IconButton from '@mui/material/IconButton';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import {  GridRenderCellParams } from '@mui/x-data-grid';
 import Permission from './Permission';
 import { resetState } from '../../features/permissions/permissionSlice';
 import { addOrUpdatePermission } from '../../features/permissions/permissionsSlice';
 import { fetchPermissions } from '../../features/permissions/permissionsThunk';
-import './Permissions';
+import './Permissions.scss';
+import {RootState, useAppDispatch} from "../../app/store";
 
+
+export interface PermissionType {
+  _id: string;
+  name: string;
+  description: string;
+}
 const Permissions = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     permissions = [],
     status,
     error,
-  } = useSelector(state => {
+  } = useSelector((state:RootState) => {
     return state.permissions;
   });
 
@@ -37,7 +44,7 @@ const Permissions = () => {
       headerName: 'Actions',
       width: 150,
       sortable: false,
-      renderCell: params => (
+      renderCell:(params: GridRenderCellParams)=> (
         <>
           <IconButton
             color="primary"
@@ -57,7 +64,7 @@ const Permissions = () => {
   ];
 
   // Close modal
-  const handleClose = permission => {
+  const handleClose = (permission?: PermissionType) => {
     setOpen(false);
     dispatch(resetState());
     if (permission) {
@@ -71,12 +78,12 @@ const Permissions = () => {
     }
   }, [status, dispatch]);
 
-  const getRowId = row => {
+  const getRowId = (row: PermissionType)=> {
     return row._id;
   };
 
   // Handle row click to open modal
-  const handleRowClick = permissionId => {
+  const handleRowClick = (permissionId?: string) => {
     setSelectedPermissionId(permissionId); // Store the selected permissionId
     setOpen(true); // Open the modal
   };

@@ -6,13 +6,12 @@ import { styled } from '@mui/material/styles';
 import {FormEvent, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { login } from '../../features/auth/authThunk';
-import {RootState} from "../../app/store";
+import {RootState, useAppDispatch} from "../../app/store";
 
 const Login = () => {
   // const [credentials, setCredentials] = useState({ username: '', password: '' });
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 

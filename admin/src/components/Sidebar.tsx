@@ -12,9 +12,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
-import {RootState} from "../app/store";
+import {RootState, useAppDispatch} from "../app/store";
 
 const Sidebar = () => {
+
   const navigation_list = [
     {
       segment: '/dashboard/users',

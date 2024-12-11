@@ -1,15 +1,14 @@
 import { Button, Paper } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { fetchCourses } from '../../features/courses/coursesThunk';
 
-import './Courses';
-import {RootState} from "../../app/store";
+import './Courses.scss';
+import {RootState, useAppDispatch} from "../../app/store";
 const Courses = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { courses = [], status } = useSelector((state:RootState) => state.courses);
 
   const columns = [
@@ -28,7 +27,7 @@ const Courses = () => {
 
   const navigate = useNavigate();
 
-  const createUpdateCourse = courseId => {
+  const createUpdateCourse = (courseId?: string) => {
     let path = '/dashboard/add-course';
     if (courseId) path = `/dashboard/update-course/${courseId}`;
     navigate(path);
@@ -38,7 +37,7 @@ const Courses = () => {
 
   return (
     <div>
-      <div className="coursesTitle">
+      <div className='coursesTitle'>
         <h1>Courses List</h1>
         <Button
           onClick={() => {

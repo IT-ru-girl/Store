@@ -42,7 +42,7 @@ const Navbar = () => {
   const { sidebarOpen } = useSelector((state:RootState) => state.dashboard);
   const dispatch = useDispatch();
 
-  const handleLogout = (e: MouseEvent<HTMLButtonElement> )=> {
+  const handleLogout = (e: React.MouseEvent<HTMLButtonElement> )=> {
     e.preventDefault();
     dispatch(logout());
   };

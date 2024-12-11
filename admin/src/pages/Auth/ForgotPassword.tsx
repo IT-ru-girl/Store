@@ -5,7 +5,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 import {FC, FormEvent} from "react";
 
@@ -53,9 +52,6 @@ export const  ForgotPassword: FC<ForgotPasswordProps>= ({ open, handleClose })=>
   );
 }
 
-ForgotPassword.propTypes = {
-  handleClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-};
+
 
 

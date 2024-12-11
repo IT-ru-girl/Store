@@ -1,10 +1,12 @@
 import { TextField, Button, Paper, Typography } from '@mui/material';
 import {ChangeEvent, FormEvent, useState} from 'react';
-import { useDispatch } from 'react-redux';
-import { addCourse } from '../../features/courses/coursesThunk';
+
+
+import {addCourse, SingleCourse} from '../../features/courses/coursesThunk';
+import {useAppDispatch} from "../../app/store";
 
 const Course = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [courseData, setCourseData] = useState({
     title: '',

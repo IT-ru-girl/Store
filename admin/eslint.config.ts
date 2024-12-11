@@ -1,10 +1,12 @@
 import js from '@eslint/js';
 import eslintPluginImport from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
-import react from 'eslint-plugin-react';
+import * as react from 'eslint-plugin-react';
+
+
 import globals from 'globals';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tseslintParser from '@typescript-eslint/parser';
+import * as tseslint from '@typescript-eslint/eslint-plugin';
+import * as tseslintParser from '@typescript-eslint/parser';
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
