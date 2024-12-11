@@ -7,7 +7,7 @@ const dashboardSlice = createSlice({
     sidebarOpen: true,
   },
   reducers: {
-    toggleSidebar: (state: RootState) => {
+    toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
   },
