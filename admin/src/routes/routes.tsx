@@ -2,13 +2,13 @@
 import ProtectedRoute from './ProtectedRoute';
 import Login from '../pages/Auth/Login';
 import Course from '../pages/courses/Course';
-import Courses from '../pages/courses/Courses';
 import Dashboard from '../pages/Dashboard';
 import Modules from '../pages/Modules';
 import NotFound from '../pages/NotFound';
 import Permission from '../pages/permissions/Permission';
-import Permissions from '../pages/permissions/Permissions';
 import Users from '../pages/Users';
+import Courses from "../pages/courses/Courses";
+import Permissions from "../pages/permissions/Permissions";
 
 const routes = [
   {
@@ -55,7 +55,7 @@ const routes = [
         path: 'modules/:courseId',
         element: <Modules />,
       },
-      
+
     ],
   },
   {

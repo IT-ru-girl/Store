@@ -6,7 +6,21 @@ import apiClient from '../../utils/apiClient';
 const API_URL = '/courses';
 
 // Async thunks for CRUD operations
-
+ export interface ICourse {
+  id: string;
+  title: string;
+  description: string;
+  modules: string;
+  instructor: string;
+  students: string;
+}
+export interface ISingleCourse {
+    title: string;
+    description: string;
+    modules: string;
+    instructor: string;
+    students?: string;
+}
 // Fetch all courses
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
   const response = await apiClient.get(API_URL);
@@ -14,26 +28,26 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () =>
 });
 
 // Fetch specific course
-export const fetchCourse = createAsyncThunk('courses/fetchCourse', async courseId => {
+export const fetchCourse = createAsyncThunk('courses/fetchCourse', async (courseId: string )=> {
   const response = await apiClient.get(`${API_URL}/${courseId}`);
   return response.data;
 });
 
 // Add a new course
-export const addCourse = createAsyncThunk('courses/addCourse', async newCourse => {
+export const addCourse = createAsyncThunk('courses/addCourse', async (newCourse: ISingleCourse) => {
   const response = await apiClient.post(API_URL, newCourse);
   return response.data;
 });
 
 // Update a course
-export const updateCourse = createAsyncThunk('courses/updateCourse', async updatedCourse => {
+export const updateCourse = createAsyncThunk('courses/updateCourse', async (updatedCourse: ICourse) => {
   const { id, ...data } = updatedCourse;
   const response = await apiClient.put(`${API_URL}/${id}`, data);
   return response.data;
 });
 
 // Delete a course
-export const deleteCourse = createAsyncThunk('courses/deleteCourse', async courseId => {
+export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (courseId: string ) => {
   await apiClient.delete(`${API_URL}/${courseId}`);
   return courseId;
 });

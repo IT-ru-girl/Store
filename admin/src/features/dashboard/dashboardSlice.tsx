@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const dashboardSlice = createSlice({
-  name: 'dashboard',
+  name: "dashboard",
   initialState: {
     sidebarOpen: true,
   },
   reducers: {
-    toggleSidebar: state => {
+    toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
   },

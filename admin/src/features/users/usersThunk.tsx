@@ -3,6 +3,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import apiClient from '../../utils/apiClient';
 
+
+
+ export interface IUser {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  role: string;
+}
+
+ export interface IUpdateUserPayload {
+  userId: string;
+  updatedUser: IUser;
+}
 const API_URL = '/users';
 
 // Async Thunks for fetching and creating users
@@ -25,7 +38,7 @@ export const addUser = createAsyncThunk('users/addUser', async newUser => {
 });
 
 // Update a user
-export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, updatedUser }) => {
+export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, updatedUser }:IUpdateUserPayload) => {
   const response = await apiClient.put(`${API_URL}/${userId}`, updatedUser);
   return response.data;
 });

@@ -3,17 +3,17 @@ import Box from '@mui/material/Box';
 import MuiCard from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {FormEvent, useEffect, useState} from 'react';
+import {  useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { login } from '../../features/auth/authThunk';
+import {RootState, useAppDispatch} from "../../app/store";
 
 const Login = () => {
   // const [credentials, setCredentials] = useState({ username: '', password: '' });
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector(state => state.auth);
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   const [emailError, setEmailError] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
@@ -29,28 +29,30 @@ const Login = () => {
     setOpen(false);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit =  (event: FormEvent<HTMLFormElement>)=> {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const email = String(data.get('email')) || '';
+    const password = String(data.get('password')) || '';
+
     dispatch(
-      login({
-        username: data.get('email'),
-        password: data.get('password'),
-      }),
+        login({
+          email: email,
+          password: password
+        }),
     );
   };
 
   const validateInputs = () => {
-    const email = document.getElementById('email');
+    const emailElement = document.getElementById('email') as HTMLInputElement | null;
 
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (emailElement && (!emailElement.value || !/\S+@\S+\.\S+/.test(emailElement.value))) {
       setEmailError(true);
       setEmailErrorMessage('Please enter a valid email address.');
       isValid = false;
     }
-
     return isValid;
   };
 

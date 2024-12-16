@@ -1,11 +1,10 @@
 import { TextField, Button, Paper, Typography } from '@mui/material';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { addCourse } from '../../features/courses/coursesThunk';
+import {ChangeEvent, FormEvent, useState} from 'react';
+import {addCourse, } from '../../features/courses/coursesThunk';
+import {useAppDispatch} from "../../app/store";
 
 const Course = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [courseData, setCourseData] = useState({
     title: '',
@@ -15,11 +14,11 @@ const Course = () => {
     students: '',
   });
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCourseData({ ...courseData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit =(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(addCourse(courseData));
     setCourseData({

@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addCourse, deleteCourse, fetchCourse, fetchCourses, updateCourse } from './coursesThunk';
+import { deleteCourse, fetchCourse, fetchCourses, updateCourse } from './coursesThunk';
 
 const coursesSlice = createSlice({
   name: 'auth',
   initialState: {
     courses: [],
     course: null,
+    totalPages: 0,
+    currentPage: 0,
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },

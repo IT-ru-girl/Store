@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import { addUser, deleteUser, fetchUser, updateUser } from './usersThunk';
+import {addUser, deleteUser, fetchUser, updateUser, User} from './usersThunk';
 
 const initialState = {
   user: null,
@@ -19,7 +19,7 @@ const userSlice = createSlice({
       .addCase(fetchUser.pending, state => {
         state.status = 'fetching';
       })
-      .addCase(fetchUser.fulfilled, (state, action) => {
+      .addCase(fetchUser.fulfilled, (state, action : PayloadAction<User>) => {
         state.status = 'fetched';
         state.user = action.payload;
       })
