@@ -37,7 +37,7 @@ const Login = () => {
 
     dispatch(
         login({
-          email: email,
+          email,
           password: password
         }),
     );

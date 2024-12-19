@@ -9,6 +9,8 @@ import Permission from '../pages/permissions/Permission';
 import Users from '../pages/Users';
 import Courses from "../pages/courses/Courses";
 import Permissions from "../pages/permissions/Permissions";
+import {Shop} from "../pages/shop/Shop";
+
 
 const routes = [
   {
@@ -18,6 +20,10 @@ const routes = [
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/shop',
+    element: <Shop />,
   },
   {
     path: '/dashboard/*',

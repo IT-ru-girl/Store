@@ -1,9 +1,9 @@
-import { createRoot } from 'react-dom/client';  // Именованный импорт
-import './index.css';
-import { Provider } from 'react-redux';
+import {Provider} from "react-redux";
 
+import {store} from "./app/store";
+import {createRoot} from "react-dom/client";
 import App from './App';
-import { store } from './app/store';
+
 
 const root = createRoot(document.getElementById('root')!);
 root.render(

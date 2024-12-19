@@ -13,9 +13,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../app/store";
 
 export const Navbar: FC = () => {
+  const navigate = useNavigate()
   const drawerWidth = 240;
 
-  const navigate = useNavigate();
+
 
   const AppBar = styled(MuiAppBar)<{ open?: boolean }>(({ theme, open }) => ({
     zIndex: theme.zIndex.drawer + 1,
@@ -40,6 +41,9 @@ export const Navbar: FC = () => {
     e.preventDefault();
     dispatch(logout());
   };
+  const handleShop = () => {
+    navigate('/shop')
+  }
 
   const handleDrawerOpen: MouseEventHandler<HTMLButtonElement> = () => {
     dispatch(toggleSidebar());
@@ -78,6 +82,7 @@ export const Navbar: FC = () => {
           <Button color="inherit" onClick={() => navigate("/checkout")}>
             Checkout
           </Button>
+          <Button color="inherit" onClick={handleShop}>Shop</Button>
         </Toolbar>
       </AppBar>
   );

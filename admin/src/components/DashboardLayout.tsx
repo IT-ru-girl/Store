@@ -1,8 +1,9 @@
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Navbar from './Navbar';
+
 import Sidebar from './Sidebar';
+import {Navbar} from "./Navbar";
 
 const DashboardLayout = ({ children }) => {
   return (
