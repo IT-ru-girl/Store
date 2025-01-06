@@ -37,7 +37,7 @@ export const Navbar: FC = () => {
   const { sidebarOpen } = useSelector((state: RootState) => state.dashboard);
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleLogout = (e) => {
+  const handleLogout = (e:any) => {
     e.preventDefault();
     dispatch(logout());
   };

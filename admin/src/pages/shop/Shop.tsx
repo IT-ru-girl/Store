@@ -1,17 +1,14 @@
 import { Container } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Header } from './header/Header';
-import { ICartItem } from './type/Types';
+import { Header } from './components/Header/Header';
 import { InputForm } from './Input.tsx';
-import { Cart } from './components/cart';
-import { Products } from './components/product/Products.tsx';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../app/store.ts';
-
-import AddProductModal from './components/product/AddProductModal.tsx';
+import { Cart } from './components/Cart';
+import { Products } from './components/Product/Products.tsx';
+import ProductAddModal from './components/Product/ProductAddModal.tsx';
+import { FilterPanel } from './components/Filter/FilterPanel.tsx';
 
 
-export const cartItems: ICartItem[] = [];
+
 export const Shop = () => {
 
 
@@ -23,8 +20,9 @@ export const Shop = () => {
         <Header />
         <InputForm />
         <Cart />
+        <ProductAddModal/>
         <Products />
-        <AddProductModal/>
+
       </Container>
     </>
   );

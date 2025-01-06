@@ -15,7 +15,9 @@ export const HeaderTitle = styled(Typography)(({theme}) => ({
 export const InputSearch = styled(TextField)(({theme}) => ({
     marginTop: '100px'
 }));
-export const ButtonCard = styled(Button)(({theme}) => ({}));
+export const ButtonCard = styled(Button)(({theme}) => ({
+    marginBottom: '10px'
+}));
 export const ButtonBlock = styled('div')(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',

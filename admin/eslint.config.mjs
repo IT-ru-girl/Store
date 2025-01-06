@@ -20,18 +20,9 @@ export default [
         },
       },
       globals: {
-        ...Object.keys(globals.browser).reduce((acc, key) => {
-          acc[key.trim()] = globals.browser[key];
-          return acc;
-        }, {}),
-        ...Object.keys(globals.node).reduce((acc, key) => {
-          acc[key.trim()] = globals.node[key];
-          return acc;
-        }, {}),
-        ...Object.keys(globals.jest).reduce((acc, key) => {
-          acc[key.trim()] = globals.jest[key];
-          return acc;
-        }, {}),
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
       },
     },
     plugins: {
