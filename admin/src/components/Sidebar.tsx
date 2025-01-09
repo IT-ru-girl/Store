@@ -8,11 +8,9 @@ import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import ListItemButton from '@mui/material/ListItemButton';
 import { styled, useTheme } from '@mui/material/styles';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { toggleSidebar } from '../features/dashboard/dashboardSlice';
-import {RootState, useAppDispatch} from "../app/store";
+import { useAppDispatch, useAppSelector } from '../app/store';
 
 const Sidebar = () => {
 
@@ -91,8 +89,8 @@ const Sidebar = () => {
 
   const theme = useTheme();
   const navigate = useNavigate();
-  const { sidebarOpen } = useSelector((state: RootState) => state.dashboard);
-  const dispatch = useDispatch();
+  const { sidebarOpen } = useAppSelector((state) => state.dashboard);
+  const dispatch = useAppDispatch();
 
   const handleDrawerClose = () => {
     dispatch(toggleSidebar(false));

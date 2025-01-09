@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 import {toggleSidebar} from "../features/dashboard/dashboardSlice";
 import {FC, MouseEventHandler} from "react";
 import {logout} from "../features/auth/authSlice";
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "../app/store";
+import {useDispatch} from "react-redux";
+import { AppDispatch, useAppSelector } from '../app/store';
 
 export const Navbar: FC = () => {
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ export const Navbar: FC = () => {
     }),
   }));
 
-  const { sidebarOpen } = useSelector((state: RootState) => state.dashboard);
+  const { sidebarOpen } = useAppSelector((state) => state.dashboard);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleLogout = (e:any) => {

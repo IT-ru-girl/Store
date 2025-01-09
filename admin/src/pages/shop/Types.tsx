@@ -14,7 +14,6 @@ export interface IProductItem {
   product: IProduct;
 }
 
-
 export interface INewProduct {
   id: string,
   name: string,

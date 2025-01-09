@@ -28,7 +28,64 @@ const initialState:  IProduct[] =
       name: 'Ноутбук Huawei MateBook 14',
       price: 99990,
       quantity: 6
-    }]
+    },
+   {
+     id: nanoid(),
+     image: huawei,
+     name: 'Ноутбук Huawei MateBook',
+     price: 64980,
+     quantity: 12
+   },
+   {
+     id: nanoid(),
+     image: acer,
+     name: 'Ноутбук Acer Aspire 3',
+     price: 49590,
+     quantity: 5
+   },
+   {
+     id: nanoid(),
+     image: mate,
+     name: 'Ноутбук Huawei MateBook 14',
+     price: 79990,
+     quantity: 6
+   },
+   {
+     id: nanoid(),
+     image: huawei,
+     name: 'Ноутбук Huawei MateBook',
+     price: 44990,
+     quantity: 12
+   },
+   {
+     id: nanoid(),
+     image: acer,
+     name: 'Ноутбук Acer Aspire 3',
+     price: 19990,
+     quantity: 5
+   },
+   {
+     id: nanoid(),
+     image: mate,
+     name: 'Ноутбук Huawei MateBook 14',
+     price: 39990,
+     quantity: 6
+   },
+   {
+     id: nanoid(),
+     image: acer,
+     name: 'Ноутбук Acer Aspire 3',
+     price: 67990,
+     quantity: 5
+   },
+   {
+     id: nanoid(),
+     image: mate,
+     name: 'Ноутбук Huawei MateBook 14',
+     price: 69990,
+     quantity: 6
+   },
+ ]
 ;
 
 const productsSlice = createSlice({

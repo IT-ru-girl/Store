@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Box, Slider, TextField, Button, Checkbox, FormControlLabel, Typography, Select, MenuItem } from '@mui/material';
+import { FilterBox } from './FilterPanel.styles.ts';
 
-export const FilterPanel = ({ onApplyFilters, onResetFilters }: any) => {
+interface FilterValues {
+  priceRange:number[],
+  onlyInStock: boolean,
+  outOfStock: boolean,
+  category: string
+}
+interface FiltersPanel {
+  onApplyFilters: (filters: FilterValues) => void;
+  onResetFilters: () => void;
+}
+
+export const FilterPanel = ({ onApplyFilters, onResetFilters }: FiltersPanel) => {
   const [priceRange, setPriceRange] = useState<number[]>([0, 100000]);
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [outOfStock, setOutOfStock] = useState(false);
@@ -24,7 +36,7 @@ export const FilterPanel = ({ onApplyFilters, onResetFilters }: any) => {
   };
 
   return (
-    <Box style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '8px', marginBottom: '20px' }}>
+    <FilterBox>
       <Typography variant="h6">Фильтры</Typography>
       <Box>
         <Typography>Цена:</Typography>
@@ -100,6 +112,6 @@ export const FilterPanel = ({ onApplyFilters, onResetFilters }: any) => {
       <Button variant="outlined" onClick={handleResetFilters}>
         Сбросить фильтры
       </Button>
-    </Box>
+    </FilterBox>
   );
 };

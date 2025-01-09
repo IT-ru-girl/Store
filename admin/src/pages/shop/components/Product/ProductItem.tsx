@@ -1,25 +1,23 @@
 import Card from '@mui/material/Card';
-import { Button, CardActions, CardMedia, Grid, TextField, Typography } from '@mui/material';
+import { Button, CardActions, CardMedia, Grid, TextField, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import { ButtonBlock, ButtonCard } from '../Header/Header.styles.tsx';
 import { IProduct, IProductItem } from '../../Types.tsx';
-import { AppDispatch, RootState } from '../../../../app/store.ts';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useAppDispatch, useAppSelector } from '../../../../app/store.ts';
 import { addItem } from '../../../../features/cart/cartSlice.tsx';
 import { deleteProduct, updateProduct } from '../../../../features/cart/productSlice.tsx';
-import { clearProduct } from '../../../../features/cart/newProductSlice.tsx';
 import { useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
+
 
 
 
 export const ProductItem = ({ product }:IProductItem) => {
-  const new_product = useSelector((state: RootState) => state.new_product);
-  const dispatch= useDispatch<AppDispatch>()
-  const  cart= useSelector((state: RootState) => state.cart);
+  const newProduct = useAppSelector((state) => state.new_product);
+
+  const dispatch= useAppDispatch()
+
+  const  cart= useAppSelector((state) => state.cart);
+
   const [isEditOpen, setEditOpen] = useState(false);
   const [editProduct, setEditProduct] = useState<IProduct>(product);
   const isExistInCart = cart.some(p => p.id === product.id);
@@ -127,10 +125,6 @@ export const ProductItem = ({ product }:IProductItem) => {
           </DialogActions>
         </Dialog>
       </Grid>
-
-
-
-
       </>
   );
 };

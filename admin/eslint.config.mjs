@@ -10,7 +10,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: {
       parserOptions: {
         ecmaVersion: 'latest',

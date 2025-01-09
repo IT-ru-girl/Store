@@ -13,5 +13,6 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@utils': path.resolve(__dirname, 'src/utils'),
     },
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
 };

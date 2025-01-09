@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import  { useState } from 'react';
 import { Grid, TextField } from '@mui/material';
 import { ProductItem } from './ProductItem';
-import { RootState } from '../../../../app/store.ts';
-import { FilterPanel } from '../Filter/FilterPanel.tsx'; // Ваш компонент для отображения товара
+import {  useAppSelector } from '../../../../app/store.ts';
+import { FilterPanel } from '../Filter/FilterPanel.tsx';
+
 
 export const Products = () => {
-  const allProducts = useSelector((state: RootState) => state.products);
+  const allProducts = useAppSelector((state) => state.products);
+
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
   const [searchTerm, setSearchTerm] = useState('');
 
