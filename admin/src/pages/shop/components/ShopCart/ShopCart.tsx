@@ -1,12 +1,12 @@
 import { Button, List, ListItem, ListItemText, Modal,  Typography } from '@mui/material';
 import { useState } from 'react';
-import {  useAppDispatch, useAppSelector } from '../../../../app/store.ts';
 import { clearCart, removeItem, updateItemQuantity } from '../../../../features/cart/cartSlice.tsx';
-import { CartBox, CartBoxTotal, CartTextField } from './Cart.styles.ts';
+import { useAppDispatch, useAppSelector } from '../../../../app/store.ts';
+import { CartBox, CartBoxTotal, CartTextField } from '../../../../styles';
 
 
 
-export const Cart = () => {
+export const ShopCart = () => {
   const dispatch= useAppDispatch()
 
   const cart = useAppSelector((state) => state.cart);

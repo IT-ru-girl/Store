@@ -1,8 +1,7 @@
-import { HeaderBar, HeaderTitle } from './Header.styles.tsx';
+import { HeaderBar, HeaderTitle } from '../../../../styles';
 
 
-
-export const Header = () => {
+export const ShopHeader = () => {
 
   return (
       <HeaderBar>

@@ -1,27 +1,22 @@
-import Card from '@mui/material/Card';
-import { Button, CardActions, CardMedia, Grid, TextField, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
-import CardContent from '@mui/material/CardContent';
-import { ButtonBlock, ButtonCard } from '../Header/Header.styles.tsx';
-import { IProduct, IProductItem } from '../../Types.tsx';
-import {  useAppDispatch, useAppSelector } from '../../../../app/store.ts';
-import { addItem } from '../../../../features/cart/cartSlice.tsx';
-import { deleteProduct, updateProduct } from '../../../../features/cart/productSlice.tsx';
+import { deleteProduct, updateProduct } from '../../../../../features/cart/productSlice.tsx';
+import { addItem } from '../../../../../features/cart/cartSlice.tsx';
+import { useAppDispatch, useAppSelector } from '../../../../../app/store.ts';
 import { useState } from 'react';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, TextField, Typography, Dialog, DialogTitle,DialogContent,DialogActions } from '@mui/material';
+import { IProduct, IProductItem } from '../../../ShopTypes.tsx';
+import { ButtonBlock, ButtonCard } from '../../../../../styles';
 
 
-
-
-export const ProductItem = ({ product }:IProductItem) => {
+export const ShopProductItem = ({ product }: IProductItem) => {
   const newProduct = useAppSelector((state) => state.new_product);
-
-  const dispatch= useAppDispatch()
-
-  const  cart= useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector((state) => state.cart);
 
   const [isEditOpen, setEditOpen] = useState(false);
   const [editProduct, setEditProduct] = useState<IProduct>(product);
   const isExistInCart = cart.some(p => p.id === product.id);
   const [quantity, setQuantity] = useState(1);
+
   const handleAddToCart = () => {
     if (quantity > 0) {
       dispatch(addItem({ ...product, quantity }));
@@ -41,9 +36,11 @@ export const ProductItem = ({ product }:IProductItem) => {
     dispatch(updateProduct(editProduct));
     handleEditClose();
   };
+
   const addHandler = () => {
     dispatch(addItem(product));
   };
+
   const handleDeleteProduct = () => {
     dispatch(deleteProduct(product.id));
   };
@@ -71,6 +68,7 @@ export const ProductItem = ({ product }:IProductItem) => {
           </CardContent>
           <CardActions>
             <ButtonBlock>
+
               <ButtonCard onClick={handleEditOpen} size="small" variant="contained" color="primary">
                 Редактировать
               </ButtonCard>
@@ -125,6 +123,6 @@ export const ProductItem = ({ product }:IProductItem) => {
           </DialogActions>
         </Dialog>
       </Grid>
-      </>
+    </>
   );
 };

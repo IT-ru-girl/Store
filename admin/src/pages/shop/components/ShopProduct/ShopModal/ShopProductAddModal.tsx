@@ -1,14 +1,15 @@
 import  { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { Button, Modal, TextField, Grid, Card, CardContent, Typography, CardActions } from '@mui/material';
-import { addProduct, clearProduct } from '../../../../features/cart/newProductSlice.tsx';
-import { CartBox } from '../Cart/Cart.styles.ts';
-import { INewProduct } from '../../Types.tsx';
-import {  useAppDispatch, useAppSelector } from '../../../../app/store.ts';
+import { addProduct, clearProduct } from '../../../../../features/cart/newProductSlice.tsx';
+import { CartBox } from '../../ShopCart/ShopCart.styles.ts';
+import { INewProduct } from '../../../ShopTypes.tsx';
+import {  useAppDispatch, useAppSelector } from '../../../../../app/store.ts';
+import { InputSearch } from '../../ShopHeader/ShopHeader.styles.tsx';
 
 
 
-const ProductAddModal = () => {
+export const ShopProductAddModal = () => {
   const dispatch = useAppDispatch();
   const newProducts = useAppSelector((state) => state.new_product.items); // Список всех товаров
   const [open, setOpen] = useState(false);
@@ -51,6 +52,7 @@ const ProductAddModal = () => {
 
   return (
     <>
+      <InputSearch id="standard-basic" label="Искать товары...." variant="outlined" />
       <Button variant="contained" color="primary" onClick={toggleModal}>
         Добавить товар
       </Button>
@@ -117,4 +119,4 @@ const ProductAddModal = () => {
   );
 };
 
-export default ProductAddModal;
+

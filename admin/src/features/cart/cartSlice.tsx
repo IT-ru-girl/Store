@@ -1,4 +1,4 @@
-import { ICartItem } from '../../pages/shop/Types.tsx';
+import { ICartItem } from '../../pages/shop/ShopTypes.tsx';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 

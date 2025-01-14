@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { Box, Slider, TextField, Button, Checkbox, FormControlLabel, Typography, Select, MenuItem } from '@mui/material';
-import { FilterBox } from './FilterPanel.styles.ts';
+import { FilterBox } from '../../../../styles';
+
 
 interface FilterValues {
   priceRange:number[],
@@ -13,7 +14,7 @@ interface FiltersPanel {
   onResetFilters: () => void;
 }
 
-export const FilterPanel = ({ onApplyFilters, onResetFilters }: FiltersPanel) => {
+export const ShopFilterPanel = ({ onApplyFilters, onResetFilters }: FiltersPanel) => {
   const [priceRange, setPriceRange] = useState<number[]>([0, 100000]);
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [outOfStock, setOutOfStock] = useState(false);

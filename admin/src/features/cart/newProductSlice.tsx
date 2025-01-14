@@ -1,4 +1,4 @@
-import { INewProduct, ProductsState } from '../../pages/shop/Types.tsx';
+import { INewProduct, ProductsState } from '../../pages/shop/ShopTypes.tsx';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
