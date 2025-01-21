@@ -1,11 +1,9 @@
-import { ThemeProvider } from '@mui/material/styles';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { checkAuth } from './features/auth/authThunk';
-import AppRoutes from './routes/AppRoutes';
-import theme from './styles/theme';
 import {useAppDispatch} from "./app/store";
+import {useEffect} from "react";
+import {checkAuth} from "./features/auth/authThunk";
+import {ThemeProvider} from "@mui/material";
+import theme from "./styles/theme";
+import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   const dispatch = useAppDispatch();

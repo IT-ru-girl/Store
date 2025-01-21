@@ -9,13 +9,14 @@ import { useNavigate } from "react-router-dom";
 import {toggleSidebar} from "../features/dashboard/dashboardSlice";
 import {FC, MouseEventHandler} from "react";
 import {logout} from "../features/auth/authSlice";
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "../app/store";
+import {useDispatch} from "react-redux";
+import { AppDispatch, useAppSelector } from '../app/store';
 
 export const Navbar: FC = () => {
+  const navigate = useNavigate()
   const drawerWidth = 240;
 
-  const navigate = useNavigate();
+
 
   const AppBar = styled(MuiAppBar)<{ open?: boolean }>(({ theme, open }) => ({
     zIndex: theme.zIndex.drawer + 1,
@@ -33,13 +34,16 @@ export const Navbar: FC = () => {
     }),
   }));
 
-  const { sidebarOpen } = useSelector((state: RootState) => state.dashboard);
+  const { sidebarOpen } = useAppSelector((state) => state.dashboard);
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleLogout = (e) => {
+  const handleLogout = (e:any) => {
     e.preventDefault();
     dispatch(logout());
   };
+  const handleShop = () => {
+    navigate('/shop')
+  }
 
   const handleDrawerOpen: MouseEventHandler<HTMLButtonElement> = () => {
     dispatch(toggleSidebar());
@@ -78,6 +82,7 @@ export const Navbar: FC = () => {
           <Button color="inherit" onClick={() => navigate("/checkout")}>
             Checkout
           </Button>
+          <Button color="inherit" onClick={handleShop}>Shop</Button>
         </Toolbar>
       </AppBar>
   );
